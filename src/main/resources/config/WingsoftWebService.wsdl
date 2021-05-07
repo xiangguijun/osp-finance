@@ -1,0 +1,959 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://webservice.wws.wingsoft.com" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://webservice.wws.wingsoft.com">
+    <wsdl:documentation>WingsoftWebService</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://webservice.wws.wingsoft.com">
+            <xs:element name="uploadFile">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="bytes" nillable="true" type="xs:base64Binary"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="uploadFileResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="download">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="xmlData" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="sign" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="downloadResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getFileBytes">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="filePath" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getFileBytesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="test1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="x" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="y" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="z" nillable="true" type="xs:base64Binary"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="test1Response">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="sayHello">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="sayHelloResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="uploadBinary">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="bytes" nillable="true" type="xs:base64Binary"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="uploadBinaryResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="uploadBase64">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="base64" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="uploadBase64Response">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="downloadBinary">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="version" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="downloadBinaryResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="qxtest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="version" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="qxtestResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:anyType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="callWeb">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="xmlData" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="sign" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="callWebResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getReXmlData">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="seqId" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getReXmlDataResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="resubmit">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="seqId" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="resubmitResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="downloadFile">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="downloadFileResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="test">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="x" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="y" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="z" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="testResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="sum">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="x" type="xs:int"/>
+                        <xs:element minOccurs="0" name="y" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="sumResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="upload">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="xmlData" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="sign" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="bytes" nillable="true" type="xs:base64Binary"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="uploadResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="submit">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="xmlData" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="sign" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="submitResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="update">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="submitRequest">
+        <wsdl:part name="parameters" element="ns:submit"/>
+    </wsdl:message>
+    <wsdl:message name="submitResponse">
+        <wsdl:part name="parameters" element="ns:submitResponse"/>
+    </wsdl:message>
+    <wsdl:message name="callWebRequest">
+        <wsdl:part name="parameters" element="ns:callWeb"/>
+    </wsdl:message>
+    <wsdl:message name="callWebResponse">
+        <wsdl:part name="parameters" element="ns:callWebResponse"/>
+    </wsdl:message>
+    <wsdl:message name="sumRequest">
+        <wsdl:part name="parameters" element="ns:sum"/>
+    </wsdl:message>
+    <wsdl:message name="sumResponse">
+        <wsdl:part name="parameters" element="ns:sumResponse"/>
+    </wsdl:message>
+    <wsdl:message name="testRequest">
+        <wsdl:part name="parameters" element="ns:test"/>
+    </wsdl:message>
+    <wsdl:message name="testResponse">
+        <wsdl:part name="parameters" element="ns:testResponse"/>
+    </wsdl:message>
+    <wsdl:message name="resubmitRequest">
+        <wsdl:part name="parameters" element="ns:resubmit"/>
+    </wsdl:message>
+    <wsdl:message name="resubmitResponse">
+        <wsdl:part name="parameters" element="ns:resubmitResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getReXmlDataRequest">
+        <wsdl:part name="parameters" element="ns:getReXmlData"/>
+    </wsdl:message>
+    <wsdl:message name="getReXmlDataResponse">
+        <wsdl:part name="parameters" element="ns:getReXmlDataResponse"/>
+    </wsdl:message>
+    <wsdl:message name="downloadFileRequest">
+        <wsdl:part name="parameters" element="ns:downloadFile"/>
+    </wsdl:message>
+    <wsdl:message name="downloadFileResponse">
+        <wsdl:part name="parameters" element="ns:downloadFileResponse"/>
+    </wsdl:message>
+    <wsdl:message name="uploadBinaryRequest">
+        <wsdl:part name="parameters" element="ns:uploadBinary"/>
+    </wsdl:message>
+    <wsdl:message name="uploadBinaryResponse">
+        <wsdl:part name="parameters" element="ns:uploadBinaryResponse"/>
+    </wsdl:message>
+    <wsdl:message name="qxtestRequest">
+        <wsdl:part name="parameters" element="ns:qxtest"/>
+    </wsdl:message>
+    <wsdl:message name="qxtestResponse">
+        <wsdl:part name="parameters" element="ns:qxtestResponse"/>
+    </wsdl:message>
+    <wsdl:message name="uploadBase64Request">
+        <wsdl:part name="parameters" element="ns:uploadBase64"/>
+    </wsdl:message>
+    <wsdl:message name="uploadBase64Response">
+        <wsdl:part name="parameters" element="ns:uploadBase64Response"/>
+    </wsdl:message>
+    <wsdl:message name="downloadBinaryRequest">
+        <wsdl:part name="parameters" element="ns:downloadBinary"/>
+    </wsdl:message>
+    <wsdl:message name="downloadBinaryResponse">
+        <wsdl:part name="parameters" element="ns:downloadBinaryResponse"/>
+    </wsdl:message>
+    <wsdl:message name="test1Request">
+        <wsdl:part name="parameters" element="ns:test1"/>
+    </wsdl:message>
+    <wsdl:message name="test1Response">
+        <wsdl:part name="parameters" element="ns:test1Response"/>
+    </wsdl:message>
+    <wsdl:message name="sayHelloRequest">
+        <wsdl:part name="parameters" element="ns:sayHello"/>
+    </wsdl:message>
+    <wsdl:message name="sayHelloResponse">
+        <wsdl:part name="parameters" element="ns:sayHelloResponse"/>
+    </wsdl:message>
+    <wsdl:message name="downloadRequest">
+        <wsdl:part name="parameters" element="ns:download"/>
+    </wsdl:message>
+    <wsdl:message name="downloadResponse">
+        <wsdl:part name="parameters" element="ns:downloadResponse"/>
+    </wsdl:message>
+    <wsdl:message name="uploadFileRequest">
+        <wsdl:part name="parameters" element="ns:uploadFile"/>
+    </wsdl:message>
+    <wsdl:message name="uploadFileResponse">
+        <wsdl:part name="parameters" element="ns:uploadFileResponse"/>
+    </wsdl:message>
+    <wsdl:message name="uploadRequest">
+        <wsdl:part name="parameters" element="ns:upload"/>
+    </wsdl:message>
+    <wsdl:message name="uploadResponse">
+        <wsdl:part name="parameters" element="ns:uploadResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getFileBytesRequest">
+        <wsdl:part name="parameters" element="ns:getFileBytes"/>
+    </wsdl:message>
+    <wsdl:message name="getFileBytesResponse">
+        <wsdl:part name="parameters" element="ns:getFileBytesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="updateRequest">
+        <wsdl:part name="parameters" element="ns:update"/>
+    </wsdl:message>
+    <wsdl:message name="updateResponse">
+        <wsdl:part name="parameters" element="ns:updateResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="WingsoftWebServicePortType">
+        <wsdl:operation name="submit">
+            <wsdl:input message="ns:submitRequest" wsaw:Action="urn:submit"/>
+            <wsdl:output message="ns:submitResponse" wsaw:Action="urn:submitResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="callWeb">
+            <wsdl:input message="ns:callWebRequest" wsaw:Action="urn:callWeb"/>
+            <wsdl:output message="ns:callWebResponse" wsaw:Action="urn:callWebResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="sum">
+            <wsdl:input message="ns:sumRequest" wsaw:Action="urn:sum"/>
+            <wsdl:output message="ns:sumResponse" wsaw:Action="urn:sumResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="test">
+            <wsdl:input message="ns:testRequest" wsaw:Action="urn:test"/>
+            <wsdl:output message="ns:testResponse" wsaw:Action="urn:testResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="resubmit">
+            <wsdl:input message="ns:resubmitRequest" wsaw:Action="urn:resubmit"/>
+            <wsdl:output message="ns:resubmitResponse" wsaw:Action="urn:resubmitResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getReXmlData">
+            <wsdl:input message="ns:getReXmlDataRequest" wsaw:Action="urn:getReXmlData"/>
+            <wsdl:output message="ns:getReXmlDataResponse" wsaw:Action="urn:getReXmlDataResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="downloadFile">
+            <wsdl:input message="ns:downloadFileRequest" wsaw:Action="urn:downloadFile"/>
+            <wsdl:output message="ns:downloadFileResponse" wsaw:Action="urn:downloadFileResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="uploadBinary">
+            <wsdl:input message="ns:uploadBinaryRequest" wsaw:Action="urn:uploadBinary"/>
+            <wsdl:output message="ns:uploadBinaryResponse" wsaw:Action="urn:uploadBinaryResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="qxtest">
+            <wsdl:input message="ns:qxtestRequest" wsaw:Action="urn:qxtest"/>
+            <wsdl:output message="ns:qxtestResponse" wsaw:Action="urn:qxtestResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="uploadBase64">
+            <wsdl:input message="ns:uploadBase64Request" wsaw:Action="urn:uploadBase64"/>
+            <wsdl:output message="ns:uploadBase64Response" wsaw:Action="urn:uploadBase64Response"/>
+        </wsdl:operation>
+        <wsdl:operation name="downloadBinary">
+            <wsdl:input message="ns:downloadBinaryRequest" wsaw:Action="urn:downloadBinary"/>
+            <wsdl:output message="ns:downloadBinaryResponse" wsaw:Action="urn:downloadBinaryResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="test1">
+            <wsdl:input message="ns:test1Request" wsaw:Action="urn:test1"/>
+            <wsdl:output message="ns:test1Response" wsaw:Action="urn:test1Response"/>
+        </wsdl:operation>
+        <wsdl:operation name="sayHello">
+            <wsdl:input message="ns:sayHelloRequest" wsaw:Action="urn:sayHello"/>
+            <wsdl:output message="ns:sayHelloResponse" wsaw:Action="urn:sayHelloResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="download">
+            <wsdl:input message="ns:downloadRequest" wsaw:Action="urn:download"/>
+            <wsdl:output message="ns:downloadResponse" wsaw:Action="urn:downloadResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="uploadFile">
+            <wsdl:input message="ns:uploadFileRequest" wsaw:Action="urn:uploadFile"/>
+            <wsdl:output message="ns:uploadFileResponse" wsaw:Action="urn:uploadFileResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="upload">
+            <wsdl:input message="ns:uploadRequest" wsaw:Action="urn:upload"/>
+            <wsdl:output message="ns:uploadResponse" wsaw:Action="urn:uploadResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getFileBytes">
+            <wsdl:input message="ns:getFileBytesRequest" wsaw:Action="urn:getFileBytes"/>
+            <wsdl:output message="ns:getFileBytesResponse" wsaw:Action="urn:getFileBytesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="update">
+            <wsdl:input message="ns:updateRequest" wsaw:Action="urn:update"/>
+            <wsdl:output message="ns:updateResponse" wsaw:Action="urn:updateResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="WingsoftWebServiceSoap11Binding" type="ns:WingsoftWebServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="submit">
+            <soap:operation soapAction="urn:submit" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="callWeb">
+            <soap:operation soapAction="urn:callWeb" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="test">
+            <soap:operation soapAction="urn:test" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="sum">
+            <soap:operation soapAction="urn:sum" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getReXmlData">
+            <soap:operation soapAction="urn:getReXmlData" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="resubmit">
+            <soap:operation soapAction="urn:resubmit" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="downloadFile">
+            <soap:operation soapAction="urn:downloadFile" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="uploadBinary">
+            <soap:operation soapAction="urn:uploadBinary" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="qxtest">
+            <soap:operation soapAction="urn:qxtest" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="uploadBase64">
+            <soap:operation soapAction="urn:uploadBase64" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="downloadBinary">
+            <soap:operation soapAction="urn:downloadBinary" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="test1">
+            <soap:operation soapAction="urn:test1" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="sayHello">
+            <soap:operation soapAction="urn:sayHello" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="download">
+            <soap:operation soapAction="urn:download" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="uploadFile">
+            <soap:operation soapAction="urn:uploadFile" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getFileBytes">
+            <soap:operation soapAction="urn:getFileBytes" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="upload">
+            <soap:operation soapAction="urn:upload" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="update">
+            <soap:operation soapAction="urn:update" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="WingsoftWebServiceSoap12Binding" type="ns:WingsoftWebServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="submit">
+            <soap12:operation soapAction="urn:submit" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="callWeb">
+            <soap12:operation soapAction="urn:callWeb" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="test">
+            <soap12:operation soapAction="urn:test" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="sum">
+            <soap12:operation soapAction="urn:sum" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getReXmlData">
+            <soap12:operation soapAction="urn:getReXmlData" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="resubmit">
+            <soap12:operation soapAction="urn:resubmit" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="downloadFile">
+            <soap12:operation soapAction="urn:downloadFile" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="uploadBinary">
+            <soap12:operation soapAction="urn:uploadBinary" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="qxtest">
+            <soap12:operation soapAction="urn:qxtest" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="uploadBase64">
+            <soap12:operation soapAction="urn:uploadBase64" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="downloadBinary">
+            <soap12:operation soapAction="urn:downloadBinary" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="test1">
+            <soap12:operation soapAction="urn:test1" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="sayHello">
+            <soap12:operation soapAction="urn:sayHello" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="download">
+            <soap12:operation soapAction="urn:download" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="uploadFile">
+            <soap12:operation soapAction="urn:uploadFile" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getFileBytes">
+            <soap12:operation soapAction="urn:getFileBytes" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="upload">
+            <soap12:operation soapAction="urn:upload" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="update">
+            <soap12:operation soapAction="urn:update" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="WingsoftWebServiceHttpBinding" type="ns:WingsoftWebServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="submit">
+            <http:operation location="submit"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="callWeb">
+            <http:operation location="callWeb"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="test">
+            <http:operation location="test"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="sum">
+            <http:operation location="sum"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getReXmlData">
+            <http:operation location="getReXmlData"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="resubmit">
+            <http:operation location="resubmit"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="downloadFile">
+            <http:operation location="downloadFile"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="uploadBinary">
+            <http:operation location="uploadBinary"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="qxtest">
+            <http:operation location="qxtest"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="uploadBase64">
+            <http:operation location="uploadBase64"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="downloadBinary">
+            <http:operation location="downloadBinary"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="test1">
+            <http:operation location="test1"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="sayHello">
+            <http:operation location="sayHello"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="download">
+            <http:operation location="download"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="uploadFile">
+            <http:operation location="uploadFile"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getFileBytes">
+            <http:operation location="getFileBytes"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="upload">
+            <http:operation location="upload"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="update">
+            <http:operation location="update"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="WingsoftWebService">
+        <wsdl:port name="WingsoftWebServiceHttpSoap11Endpoint" binding="ns:WingsoftWebServiceSoap11Binding">
+            <soap:address location="http://10.1.134.5/wws/services/WingsoftWebService.WingsoftWebServiceHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="WingsoftWebServiceHttpSoap12Endpoint" binding="ns:WingsoftWebServiceSoap12Binding">
+            <soap12:address location="http://10.1.134.5/wws/services/WingsoftWebService.WingsoftWebServiceHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="WingsoftWebServiceHttpEndpoint" binding="ns:WingsoftWebServiceHttpBinding">
+            <http:address location="http://10.1.134.5/wws/services/WingsoftWebService.WingsoftWebServiceHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

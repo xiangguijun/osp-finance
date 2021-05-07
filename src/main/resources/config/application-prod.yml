@@ -1,0 +1,6 @@
+
+# web-service配置
+system:
+  webservice:
+    targetPoint: http://10.1.134.5/wws/services/WingsoftWebService
+    url: http://10.1.134.5

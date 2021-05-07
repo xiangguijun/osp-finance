@@ -1,0 +1,6 @@
+
+# web-service配置
+system:
+  webservice:
+    targetPoint: http://i1zecaf.nat.ipyingshe.com/wws/services/WingsoftWebService
+    url: http://i1zecaf.nat.ipyingshe.com
